@@ -516,9 +516,93 @@
             text-align: center;
         }
 
+        /* Experience Section */
+        .experience {
+            background-color: white;
+        }
+
+        .experience-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        @media (min-width: 768px) {
+            .experience-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+        }
+
+        .experience-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--foreground);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-company {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            font-weight: 500;
+        }
+
+        .experience-date {
+            background-color: var(--primary-foreground);
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            white-space: nowrap;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .experience-date {
+                margin-top: 0;
+            }
+        }
+
+        .experience-highlights {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .experience-highlight {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-bullet {
+            color: var(--primary);
+            margin-right: 0.75rem;
+            margin-top: 0.3rem;
+            line-height: 1;
+        }
+
+        .experience-text {
+            color: var(--muted-foreground);
+            line-height: 1.7;
+        }
+
         /* Skills Section */
         .skills {
-            background-color: white;
+            background-color: var(--muted);
         }
 
         .skills-grid {
@@ -549,43 +633,25 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .skill-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-header {
+        .skills-tag-grid {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
-        .skill-name {
-            color: var(--muted-foreground);
-            font-weight: 600;
-        }
-
-        .skill-percent {
-            color: var(--muted-foreground);
+        .skill-tag {
+            background-color: var(--primary-foreground);
+            color: var(--primary);
             font-size: 0.875rem;
-        }
-
-        .skill-bar {
-            height: 0.5rem;
-            background-color: var(--secondary);
-            border-radius: 0.25rem;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background-color: var(--primary);
-            border-radius: 0.25rem;
-            transition: width 1s ease-in-out;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border);
         }
 
         /* Certifications Section */
         .certifications {
-            background-color: var(--muted);
+            background-color: white;
         }
 
         .certifications-grid {
@@ -676,7 +742,7 @@
 
         /* Projects Section */
         .projects {
-            background-color: white;
+            background-color: var(--muted);
         }
 
         .projects-list {
@@ -690,6 +756,7 @@
             border-radius: 0.75rem;
             overflow: hidden;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: white;
         }
 
         .project-header {
@@ -697,7 +764,7 @@
             align-items: flex-start;
             gap: 1rem;
             padding: 1.5rem;
-            background-color: var(--muted);
+            background-color: var(--primary-foreground);
         }
 
         .project-icon-container {
@@ -807,7 +874,7 @@
 
         /* Contact Section */
         .contact {
-            background-color: var(--muted);
+            background-color: white;
         }
 
         .contact-content {
@@ -1123,11 +1190,16 @@
             .hero-text h2 {
                 font-size: 1.125rem;
             }
+
+            .skills-grid,
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header id="header">
         <div class="container">
             <nav>
@@ -1135,6 +1207,7 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#education">Education</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#certifications">Certifications</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -1149,6 +1222,7 @@
             <ul class="mobile-menu-list">
                 <li><a href="#about" class="mobile-menu-link">About</a></li>
                 <li><a href="#education" class="mobile-menu-link">Education</a></li>
+                <li><a href="#experience" class="mobile-menu-link">Experience</a></li>
                 <li><a href="#skills" class="mobile-menu-link">Skills</a></li>
                 <li><a href="#certifications" class="mobile-menu-link">Certifications</a></li>
                 <li><a href="#projects" class="mobile-menu-link">Projects</a></li>
@@ -1157,7 +1231,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content animate-fade-in">
@@ -1202,7 +1275,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about section" id="about">
         <div class="section-container">
             <h2 class="section-title">About Me</h2>
@@ -1235,7 +1307,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
     <section class="education section" id="education">
         <div class="section-container">
             <h2 class="section-title">Education</h2>
@@ -1263,97 +1334,71 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <section class="experience section" id="experience">
+        <div class="section-container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-card animate-fade-in">
+                <div class="experience-header">
+                    <div>
+                        <h3 class="experience-title">DevOps Intern</h3>
+                        <h4 class="experience-company">Pazhanam Technologies Private Limited</h4>
+                    </div>
+                    <span class="experience-date">June 2025 – July 2025</span>
+                </div>
+                <ul class="experience-highlights">
+                    <li class="experience-highlight">
+                        <span class="experience-bullet">•</span>
+                        <span class="experience-text">Automated CI/CD pipeline using Jenkins for a Node.js API hosted on GitHub.</span>
+                    </li>
+                    <li class="experience-highlight">
+                        <span class="experience-bullet">•</span>
+                        <span class="experience-text">Configured deployment to AWS EC2 instances with environment-specific parameters.</span>
+                    </li>
+                    <li class="experience-highlight">
+                        <span class="experience-bullet">•</span>
+                        <span class="experience-text">Implemented daily MySQL database backups to Amazon S3 to ensure data persistence.</span>
+                    </li>
+                    <li class="experience-highlight">
+                        <span class="experience-bullet">•</span>
+                        <span class="experience-text">Enhanced deployment reliability and reduced manual intervention using pipeline automation.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section class="skills section" id="skills">
         <div class="section-container">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category animate-fade-in delay-100">
                     <h3>Programming Languages</h3>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">HTML</span>
-                            <span class="skill-percent">90%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">CSS</span>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">JavaScript</span>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Python</span>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
-                        </div>
+                    <div class="skills-tag-grid">
+                        <div class="skill-tag">HTML</div>
+                        <div class="skill-tag">CSS</div>
+                        <div class="skill-tag">JavaScript</div>
+                        <div class="skill-tag">Java</div>
                     </div>
                 </div>
                 <div class="skill-category animate-fade-in delay-200">
                     <h3>Frameworks & Tools</h3>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Flask</span>
-                            <span class="skill-percent">75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Git/GitHub</span>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
+                    <div class="skills-tag-grid">
+                        <div class="skill-tag">React Native</div>
+                        <div class="skill-tag">Flask</div>
+                        <div class="skill-tag">Git/GitHub</div>
                     </div>
                 </div>
                 <div class="skill-category animate-fade-in delay-300">
                     <h3>Cloud & DevOps</h3>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">AWS</span>
-                            <span class="skill-percent">85%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-header">
-                            <span class="skill-name">Firebase</span>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
-                        </div>
+                    <div class="skills-tag-grid">
+                        <div class="skill-tag">AWS</div>
+                        <div class="skill-tag">Firebase</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section class="certifications section" id="certifications">
         <div class="section-container">
             <h2 class="section-title">Certifications</h2>
@@ -1453,7 +1498,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects section" id="projects">
         <div class="section-container">
             <h2 class="section-title">Achievements & Projects</h2>
@@ -1577,7 +1621,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="contact section" id="contact">
         <div class="section-container">
             <h2 class="section-title">Contact Me</h2>
@@ -1608,15 +1651,15 @@
                     <form id="contactForm" class="contact-form">
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" class="form-input" required>
+                            <input type="text" id="name" name="name" class="form-input" required>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" class="form-input" required>
+                            <input type="email" id="email" name="email" class="form-input" required>
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Message</label>
-                            <textarea id="message" class="form-input form-textarea" required></textarea>
+                            <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
@@ -1625,7 +1668,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1638,6 +1680,7 @@
                         <h3>Navigation</h3>
                         <ul class="footer-link-list">
                             <li><a href="#about" class="footer-link">About</a></li>
+                            <li><a href="#experience" class="footer-link">Experience</a></li>
                             <li><a href="#skills" class="footer-link">Skills</a></li>
                             <li><a href="#projects" class="footer-link">Projects</a></li>
                             <li><a href="#contact" class="footer-link">Contact</a></li>
@@ -1660,7 +1703,6 @@
         </div>
     </footer>
 
-    <!-- Toast Notification -->
     <div id="toast" class="toast">
         <i class="fas fa-check-circle toast-icon"></i>
         <span class="toast-message">Message sent successfully!</span>
@@ -1698,6 +1740,10 @@
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -1707,95 +1753,64 @@
                 }
             });
         });
-
-        // Animate skill bars on scroll
-        const skillBars = document.querySelectorAll('.skill-progress');
-        const animateSkillBars = () => {
-            skillBars.forEach(bar => {
-                const percent = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = percent;
-                }, 100);
-            });
-        };
-
-        const skillsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    skillsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        const skillsSection = document.getElementById('skills');
-        if (skillsSection) {
-            skillsObserver.observe(skillsSection);
-        }
-
-        // Form submission
-        // Form submission (new code - actually sends emails)
-const contactForm = document.getElementById('contactForm');
-const toast = document.getElementById('toast');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
         
-        // Get form values
-        const formData = new FormData(contactForm);
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-
-        // Replace with your actual email
-        const yourEmail = "eslykabro@gmail.com"; // CHANGE THIS TO YOUR EMAIL
-        
-        // Show loading state
-        toast.querySelector('.toast-message').textContent = 'Sending message...';
-        toast.classList.add('show');
-
-        fetch(`https://formsubmit.co/ajax/eslykabro@gmail.com`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: json
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Success message
-            toast.querySelector('.toast-message').textContent = 'Message sent successfully!';
-            contactForm.reset();
-        })
-        .catch(error => {
-            // Error message
-            toast.querySelector('.toast-message').textContent = 'Error sending message!';
-            console.error(error);
-        })
-        .finally(() => {
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
-        });
-    });
-}
-
-        // Intersection Observer for animations
+        // Animate on scroll for sections
         const animateElements = document.querySelectorAll('.animate-fade-in');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
+                    entry.target.style.animation = `fadeIn 0.6s ease-out ${entry.target.style.animationDelay || '0s'} forwards`;
                     observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
 
         animateElements.forEach(element => {
+             // Set initial opacity to 0 to prevent flash of un-animated content
+            element.style.opacity = '0';
             observer.observe(element);
         });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const toastMessage = toast.querySelector('.toast-message');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const formData = new FormData(contactForm);
+                const object = Object.fromEntries(formData.entries());
+                const json = JSON.stringify(object);
+
+                toastMessage.textContent = 'Sending message...';
+                toast.classList.add('show');
+                
+                fetch('https://formsubmit.co/ajax/eslykabro@gmail.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        toastMessage.textContent = 'Message sent successfully!';
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        console.error(error);
+                        toastMessage.textContent = 'Error sending message!';
+                    })
+                    .finally(() => {
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 3000);
+                    });
+            });
+        }
     </script>
 </body>
 </html>
